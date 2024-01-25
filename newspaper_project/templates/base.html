@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% block css_files %}{% endblock %}
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    </head>
+    <body>
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="{% url 'index' %}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" width="24" height="24">
+                <span class="fs-4">NEWSPAPER</span>
+            </a>
+      
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="{% url 'worldnews' %}" class="nav-link px-2 link-secondary">NEWS</a></li>
+              <li><a href="{% url 'economics' %}" class="nav-link px-2 link-dark">ECONOMICS</a></li>
+              <li><a href="{% url 'sports' %}" class="nav-link px-2 link-dark">SPORTS</a></li>
+              <li><a href="{% url 'entertainment' %}" class="nav-link px-2 link-dark">ENTERTAINMENT</a></li>
+              <li><a href="{% url 'contact' %}" class="nav-link px-2 link-dark">CONTACT</a></li>
+            </ul>
+      
+            <div class="col-md-3 text-end">
+                <a href="https://twitter.com" class="button_twitter"></a>
+                <a href="https://facebook.com" class="button_facebook"></a>
+                <a href="https://instagram.com" class="button_instagram"></a>
+            </div>
+          </header>
+        {% block content %}{% endblock %}
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+              <li class="nav-item"><a href="{% url 'worldnews' %}" class="nav-link px-2 text-muted">NEWS</a></li>
+              <li class="nav-item"><a href="{% url 'economics' %}" class="nav-link px-2 text-muted">ECONOMICS</a></li>
+              <li class="nav-item"><a href="{% url 'sports' %}" class="nav-link px-2 text-muted">SPORTS</a></li>
+              <li class="nav-item"><a href="{% url 'entertainment' %}" class="nav-link px-2 text-muted">ENTERTAINMENT</a></li>
+              <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-muted">CONTACT</a></li>
+            </ul>
+            <p class="text-center text-muted">© 2024 NEWSPAPER, Inc   Created By rcacodedev</p>
+          </footer>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+
+
+
+ 
+
+
