@@ -6,6 +6,7 @@ CHOICES = (
     ('SPORTS', 'SPORTS'),
     ('ENTERTAINMENT', 'ENTERTAINMENT'),
     ('CONTACT', 'CONTACT'),
+    ('OPINION', 'OPINION'),
 )
 
 class Article(models.Model):
@@ -16,7 +17,7 @@ class Article(models.Model):
     author = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(max_length=100, unique=True)
-    category = models.CharField(max_length=20, choices=CHOICES)
+    category = models.CharField(max_length=20, choices=CHOICES, null=True)
     is_important = models.BooleanField(default=False)
 
     def __str__(self):

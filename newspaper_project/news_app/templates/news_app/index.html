@@ -7,53 +7,36 @@
 <link rel="stylesheet" href="{% static 'news_app/css/news.css' %}">
 {% endblock %}
 
-
 {% block content %}
-{% for article in articles %}
-  {% if article.is_important == True %}
-    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-      <div class="col-lg-6 px-0">
-        <h1 class="display-4 fst-italic">{{article.title}}</h1>
-        <p class="lead my-3">{{article.description}}</p>
-        <p class="lead mb-0"><a href="{% url 'article_detail' article.slug %}" class="text-body-emphasis fw-bold">Continue reading...</a></p>
-      </div>
+    <div class="news-important">
+        <h1 class="display-4 fst-italic">{{ articles.0.title }}</h1>
+        <p class="lead my-3">{{ articles.0.description }}</p>
+        <p class="lead mb-0"><a href="{% url 'article_detail' articles.0.slug %}" class="text-body-emphasis">Continue reading...</a></p>
     </div>
-  {% else %}
-    {% if article.category == 'WORLD NEWS'%}
-    <div class="row mb-2">
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">{{article.category}}</strong>
-            <h3 class="mb-0">{{article.title}}</h3>
-            <div class="mb-1 text-muted">{{article.created_at}}</div>
-            <p class="card-text mb-auto">{{article.description}}</p>
-            <a href="{% url 'article_detail' article.slug %}" class="stretched-link">Continue reading</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <img src="{{article.image.url}}" alt="Article Image" width="200" height="250">
-          </div>
+    <div class="columns-newspaper">
+        <div class="news">
+            {% for article in articles|slice:"1:5" %}
+            <div class="news-item">
+                <h2 class="display-5">{{ article.title }}</h2>
+                <p class="lead">{{ article.description }}</p>
+                <p><a href="{% url 'article_detail' article.slug %}" class="read-more">Read more</a></p>
+            </div>
+            {% endfor %}
         </div>
-      </div>
-    {% elif article.category == 'SPORTS'%}
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success">{{article.category}}</strong>
-            <h3 class="mb-0">{{article.title}}</h3>
-            <div class="mb-1 text-muted">{{article.created_at}}</div>
-            <p class="mb-auto">{{article.description}}</p>
-            <a href="{% url 'article_detail' article.slug %}" class="stretched-link">Continue reading</a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" style="--darkreader-inline-fill: #43484b;" data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em" style="--darkreader-inline-fill: #dddad6;" data-darkreader-inline-fill="">Thumbnail</text></svg>
-          
-          </div>
+        <div class="advertisement">
+          {% for article in articles %}
+            {% if article.category == 'OPINION' %}
+              <h2>{{article.category}}</h2>
+              <h4>{{article.title}}</h4>
+              <p>{{article.author}}</p>
+              <p>{{article.created_at}}</p>
+              <p>{{article.content}}</p>
+            {% endif %}
+          {% endfor %}
         </div>
-      </div>
     </div>
-
-{% endif %}
-{% endif %}
-{% endfor %}
 {% endblock %}
+
+
+
+

@@ -1,0 +1,47 @@
+.advertisement {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.columns-newspaper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.news {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.news-item {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+}
+
+/* Extra styling for the 'Read more' button */
+.read-more {
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.read-more:hover {
+    background-color: #ffffff;
+}
+
+/* Extra styling for the 'Advertisement' section */
+.advertisement {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
